@@ -2,7 +2,7 @@
 
 ## Current state
 
-This assessment build is a Node.js application with a static browser UI and a small JSON file store. It has **not** been deployed. No hosting account, domain, GitHub remote, environment, or production credentials are connected in this session, so this document describes a verified local run and a proposed deployment path rather than claiming a live release.
+This assessment build is a Node.js application with a static browser UI and a small JSON file store. It has **not** been deployed. The source repository is [DumOS-Restaurant-Ordering](https://github.com/just-vishal2004/DumOS-Restaurant-Ordering). No hosted application URL or production deployment is claimed; this document describes the verified local run and a proposed deployment path.
 
 ## Verified local run
 

@@ -2,7 +2,7 @@
 
 ## Repository
 
-GitHub URL: **Not published.** The workspace now has a local Git history, but no GitHub remote has been created or pushed, so there is no repository URL to provide.
+GitHub URL: https://github.com/just-vishal2004/DumOS-Restaurant-Ordering
 
 ## Assessment choice
 
