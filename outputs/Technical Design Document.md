@@ -12,7 +12,7 @@ GitHub URL: **Not published.** The workspace now has a local Git history, but no
 
 - Responsive customer menu with five seeded dishes, basket quantities, INR totals, name validation and a mock checkout. No payment is collected.
 - Node.js HTTP API for menu, estimate, order creation, order listing, and status changes.
-- Orders are written to `data/orders.json` so they survive a server restart on the same writable filesystem.
+- Orders are written through a temporary file and atomic rename to `data/orders.json`, so they survive a server restart on the same writable filesystem. Human-readable order numbers increase from the saved local order history; UUIDs identify the orders internally.
 - Kitchen board groups orders by stage and receives server-sent events when orders change. Customer tracking uses the same live feed.
 - The only allowed status sequence is `placed → preparing → ready → completed`.
 - Estimate uses item preparation minutes, a queue adjustment and an 8-minute handoff buffer, bounded from 20 to 55 minutes. It is a transparent heuristic, not an ML prediction. If queue data is unavailable, the UI explains that it is showing a fallback.
@@ -29,9 +29,13 @@ npm start
 
 Then open `http://localhost:3000`. Use **Kitchen view** to operate tickets. Checkout is a demo flow and does not take payment. To reset demo orders, stop the server and remove `data/orders.json`.
 
+## Interface decisions
+
+The menu is intentionally image-free. No genuine outlet food photography was supplied, so the interface avoids stock or generated-looking dish art. It prioritizes item descriptions, prices, preparation times, basket actions, and an actual queue view. The customer page and high-contrast kitchen board have separate visual treatments because they serve different tasks.
+
 ## Design notes
 
-This is intentionally a small, dependency-free vertical slice. The API keeps validation and state transition rules in `lib/domain.js`; the browser renders the customer and kitchen views from API data. SSE keeps the two views synchronized without adding a message broker. JSON-file persistence keeps the demo runnable without provisioning a database.
+This is intentionally a small, dependency-free vertical slice. The API keeps validation and state transition rules in `lib/domain.js`; the browser renders the customer and kitchen views from API data. SSE keeps the two views synchronized without adding a message broker. Dynamic customer-provided text is HTML-escaped before rendering. JSON-file persistence keeps the demo runnable without provisioning a database.
 
 ## Verification record
 
