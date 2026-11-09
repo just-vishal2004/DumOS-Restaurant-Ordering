@@ -32,4 +32,4 @@ The server defaults to port `3000`; `PORT` can override it. Orders are persisted
 - [ ] Run API and browser integration tests in the deployment environment.
 - [ ] Verify HTTPS, health checks, persistence, and live updates before sharing a URL.
 
-No deployment, Git push, public URL, or production readiness is claimed by this submission.
+The source code has been pushed to GitHub. No live application deployment or production readiness is claimed by this submission.
