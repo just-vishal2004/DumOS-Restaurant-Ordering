@@ -70,9 +70,8 @@ const server = http.createServer((req, res) => {
     return json(res, 200, {
       outlet: {
         id: "indiranagar",
-        name: "Dum House · Indiranagar",
-        address: "12 100 Feet Road, Bengaluru",
-        open: true,
+        name: "Dum House · Demo outlet",
+        address: "Indiranagar, Bengaluru",
       },
       menu,
     });
